@@ -10,7 +10,7 @@ function App() {
 
   const passwordRef = useRef(null)
 
-  const generatePassword = useCallback(() => {
+  const generatePassword = () => {
     let str = "abcdefghijklmnopqrstuvwxyz"
     let pass = ""
     if (includeUppercase) str += "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
@@ -22,18 +22,18 @@ function App() {
       pass += str[index]
     }
     setPassword(pass)
-  }, [length, includeUppercase, includeNumbers, includeSymbols])
+  }
 
   const copyPasswordToClipboard = useCallback(() => {
     passwordRef.current?.select();
-    passwordRef.current?.setSelectionRange(0, 999);
+    passwordRef.current?.setSelectionRange(0, 35);
     window.navigator.clipboard.writeText(password)
   }, [password])
 
   
   useEffect(() => {
     generatePassword()
-  }, [length, includeUppercase, includeNumbers, includeSymbols, generatePassword])
+  }, [length, includeUppercase, includeNumbers, includeSymbols])
 
   return (
     <div className="bg-gray-950 min-h-screen flex items-center justify-center">
@@ -70,7 +70,7 @@ function App() {
       <input 
         type="range"
         min={6}
-        max={100}
+        max={30}
         value={length}
         className='cursor-pointer h-2 bg-gray-700 rounded-lg appearance-none accent-orange-500 hover:accent-orange-400 w-full'
         onChange={(e) => {setLength(Number(e.target.value))}}
