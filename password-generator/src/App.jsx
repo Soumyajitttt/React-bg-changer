@@ -37,7 +37,7 @@ function App() {
 
   return (
     <div className="bg-gray-950 min-h-screen flex items-center justify-center">
-    <div className="w-full max-w-md mx-auto shadow-xl rounded-2xl px-8 py-8 my-8 bg-gray-900 text-orange-500 border border-gray-800">
+    <div className="w-full max-w-md mx-auto shadow-xl rounded-2xl px-8 py-8 my-8 bg-gray-800 text-orange-500 border border-gray-800">
   <h1 className='text-white text-3xl font-bold text-center mb-6'>Password Generator</h1>
   
   {/* Password Display Section */}
@@ -45,7 +45,7 @@ function App() {
     <input
       type="text"
       value={password}
-      className="outline-none bg-transparent w-full py-4 px-5 text-xl font-mono text-orange-400 tracking-wider"
+      className="outline-none w-full py-4 px-5 text-xl font-mono bg-gray-900 text-orange-400 tracking-wider"
       placeholder="Password"
       readOnly
       ref={passwordRef}
